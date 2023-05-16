@@ -58,7 +58,6 @@ function Login() {
 
                 await LoginApi(data)
                     .then(async (response) => {
-                        console.log('response:', response);
                         localStorage.setItem(
                             'User',
                             JSON.stringify({
