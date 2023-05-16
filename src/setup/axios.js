@@ -19,8 +19,8 @@ const axiosAuth = axios.create({
 axiosAuth.interceptors.request.use(
     (config) => {
         if (!config.headers['Authorization']) {
-            const accessToken = JSON.parse(localStorage.getItem('userInfo')).access;
-            config.headers['Authorization'] = `Bearer ${accessToken}`;
+            const token = JSON.parse(localStorage.getItem('User')).token;
+            config.headers['Authorization'] = `Bearer ${token}`;
         }
         return config;
     },

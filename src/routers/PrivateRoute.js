@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { isLogin } from '../utils';
+import { isLogin } from '../utils/auth.js';
 
 function PrivateRoute({ element: Element, ...rest }) {
     const isAuth = isLogin();

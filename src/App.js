@@ -1,12 +1,33 @@
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Login from './page/Login';
-import Register from './page/Register';
+import { privateRouters, publicRouters } from './routers';
+import PrivateRoute from './routers/PrivateRoute';
+import PublicRoute from './routers/PublicRoute';
 
 function App() {
     return (
-        <div className="App">
-            <Login />
-        </div>
+        <Router>
+            <Routes>
+                {publicRouters.map((route, index) => {
+                    const Page = route.component;
+                    return (
+                        <Route key={index} path={route.path} element={<PublicRoute restricted={route.restricted} />}>
+                            <Route path={route.path} element={<Page />} />
+                        </Route>
+                    );
+                })}
+
+                {privateRouters.map((route, index) => {
+                    const Page = route.component;
+                    return (
+                        <Route key={index} path={route.path} element={<PrivateRoute />}>
+                            <Route path={route.path} element={<Page />} />
+                        </Route>
+                    );
+                })}
+
+                <Route path="*" element={<Navigate replace to="/404" />} />
+            </Routes>
+        </Router>
     );
 }
 
