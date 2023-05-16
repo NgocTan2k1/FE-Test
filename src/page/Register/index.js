@@ -1,15 +1,18 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Modal } from 'antd';
 import classNames from 'classnames/bind';
 
 import styles from './Register.module.scss';
-import { Link } from 'react-router-dom';
+import { RegisterApi } from '../../services/nonauth';
 
 const cx = classNames.bind(styles);
 const codeCheckEmail = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
 
 function Register() {
+    const navigate = useNavigate();
+
     const [openBlank, setOpenBlank] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [email, setEmail] = useState(false);
@@ -73,6 +76,26 @@ function Register() {
 
             if (codeCheckEmail.test(values.email) && values.password === values.confirmpassword) {
                 console.log('call');
+
+                const data = {
+                    username: values.username,
+                    email: values.email,
+                    password: values.password,
+                };
+
+                RegisterApi(data)
+                    .then((response) => {
+                        localStorage.setItem(
+                            'User',
+                            JSON.stringify({
+                                token: response.data.user.token,
+                            }),
+                        );
+                        navigate('/home');
+                    })
+                    .catch((error) => {
+                        console.log('error:', error);
+                    });
             }
         } else {
             setOpenBlank(true);

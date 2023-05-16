@@ -4,11 +4,14 @@ import { Button, Form, Input, Modal } from 'antd';
 import classNames from 'classnames/bind';
 
 import styles from './Login.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { LoginApi } from '../../services/nonauth';
 
 const cx = classNames.bind(styles);
 const codeCheckEmail = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
 function Login() {
+    const navigate = useNavigate();
+
     const [openFail, setOpenFail] = useState(false);
     const [openEmail, setOpenEmail] = useState(false);
     const [openBlank, setOpenBlank] = useState(false);
@@ -48,7 +51,25 @@ function Login() {
                 setOpenEmail(true);
             } else {
                 setEmailError(false);
-                console.log('call');
+                const data = {
+                    password: values.password,
+                    email: values.email,
+                };
+
+                await LoginApi(data)
+                    .then(async (response) => {
+                        console.log('response:', response);
+                        localStorage.setItem(
+                            'User',
+                            JSON.stringify({
+                                token: response.data.user.token,
+                            }),
+                        );
+                        navigate('/home');
+                    })
+                    .catch((error) => {
+                        console.log('error:', error);
+                    });
             }
         }
     };

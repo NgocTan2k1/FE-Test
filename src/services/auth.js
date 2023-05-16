@@ -1,18 +1,18 @@
 import { axiosAuth } from '../setup/axios.js';
 
 // api detail
-const GetUserInfomation = (data) => {
+const GetUserInfomationApi = (data) => {
     return axiosAuth.get('/api/user', data);
 };
 
 // api update
-const UpdateUserInfomation = (data) => {
+const UpdateUserInfomationApi = (data) => {
     return axiosAuth.put('/api/user', data);
 };
 
 // api list user
-const GetAllUsers = (data) => {
+const GetAllUsersApi = (data) => {
     return axiosAuth.get('/api/users', data);
 };
 
-export {};
+export { GetAllUsersApi, UpdateUserInfomationApi, GetUserInfomationApi };
