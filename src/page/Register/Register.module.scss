@@ -62,8 +62,17 @@
 
 .item-button {
     position: absolute;
+    top: -4%;
     left: 50%;
     transform: translateX(-60%);
+}
+
+.link {
+    position: absolute;
+    display: block;
+    text-decoration: underline;
+    top: 1%;
+    right: 2%;
 }
 
 //error

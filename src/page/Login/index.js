@@ -4,6 +4,7 @@ import { Button, Form, Input, Modal } from 'antd';
 import classNames from 'classnames/bind';
 
 import styles from './Login.module.scss';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 const codeCheckEmail = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
@@ -130,6 +131,9 @@ function Login() {
                             <Button className={cx('item-button')} type="primary" htmlType="submit">
                                 Login
                             </Button>
+                            <Link className={cx('link')} to="/register">
+                                Register now
+                            </Link>
                         </Form.Item>
                     </div>
                 </Form>

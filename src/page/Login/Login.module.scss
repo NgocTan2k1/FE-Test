@@ -23,13 +23,19 @@
     justify-content: center;
     text-align: center;
     margin: 0;
-    padding: 32px;
+    padding: 100px;
 }
 
 .img-warning {
     width: 3.4rem;
     display: block;
     margin: auto;
+}
+
+.container-form {
+    display: block;
+    margin-top: -1%;
+    position: relative;
 }
 
 .form {
@@ -57,7 +63,16 @@
 .item-button {
     position: absolute;
     left: 50%;
+    top: -20%;
     transform: translateX(-60%);
+}
+
+.link {
+    position: absolute;
+    display: block;
+    text-decoration: underline;
+    top: 1%;
+    right: 2%;
 }
 
 //error
