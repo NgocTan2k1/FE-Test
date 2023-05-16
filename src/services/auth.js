@@ -1,8 +1,8 @@
 import { axiosAuth } from '../setup/axios.js';
 
 // api detail
-const GetUserInfomationApi = (data) => {
-    return axiosAuth.get('/api/user', data);
+const GetUserInfomationApi = () => {
+    return axiosAuth.get('/api/user');
 };
 
 // api update
@@ -11,8 +11,12 @@ const UpdateUserInfomationApi = (data) => {
 };
 
 // api list user
-const GetAllUsersApi = (data) => {
-    return axiosAuth.get('/api/users', data);
+const GetAllUsersApi = () => {
+    return axiosAuth.get('/api/users');
 };
 
-export { GetAllUsersApi, UpdateUserInfomationApi, GetUserInfomationApi };
+const DeleteUserApi = (email) => {
+    return axiosAuth.delete(`/api/users/${email}`);
+};
+
+export { GetAllUsersApi, UpdateUserInfomationApi, GetUserInfomationApi, DeleteUserApi };

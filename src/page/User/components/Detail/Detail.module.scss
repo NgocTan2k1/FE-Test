@@ -1,0 +1,50 @@
+.wrapper {
+}
+
+.title {
+}
+
+.list-item {
+}
+
+.user-container {
+    display: flex;
+    list-style: none;
+    margin: 8px 0;
+}
+
+.container-user-image {
+    display: flex;
+    margin: 0 8px;
+}
+
+.user-image {
+    display: block;
+    margin: auto;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.list-user {
+    margin: auto 40px;
+}
+
+.user-info {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline;
+    margin: 4px 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.info {
+    font-weight: 600;
+    text-decoration: none;
+}

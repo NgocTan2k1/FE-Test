@@ -1,0 +1,60 @@
+.wrapper {
+}
+.img-warning {
+    width: 3.4rem;
+    display: block;
+    margin: auto;
+}
+
+.container-form {
+    display: block;
+    margin: auto;
+    position: relative;
+}
+
+.form {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-65%);
+}
+
+.container-form-item {
+    display: block;
+    position: relative;
+}
+
+.form-item {
+    display: block;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.item-input {
+    font-weight: 500;
+}
+
+.item-button {
+    position: absolute;
+    top: -4%;
+    left: 50%;
+    transform: translateX(-60%);
+}
+
+.link {
+    position: absolute;
+    display: block;
+    text-decoration: underline;
+    top: 1%;
+    right: 2%;
+}
+
+//error
+.error {
+    position: absolute;
+    top: 120%;
+    left: 34%;
+    font-size: 14px;
+    font-weight: 600;
+    color: red;
+}
